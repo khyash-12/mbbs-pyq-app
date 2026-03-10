@@ -3,6 +3,7 @@ modules = ["python-3.11"]
 
 [nix]
 channel = "stable-25_05"
+packages = ["libxcrypt", "lsof", "psmisc", "python312Packages.uvicorn"]
 
 [unitTest]
 language = "python3"
@@ -16,3 +17,26 @@ deploymentTarget = "cloudrun"
 
 [agent]
 expertMode = true
+
+[[ports]]
+localPort = 8000
+externalPort = 8000
+
+[[ports]]
+localPort = 8001
+externalPort = 80
+
+[userenv]
+
+[userenv.shared]
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Testung"
+mode = "sequential"
+author = 55749478
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python3 -c \"import os; print(repr(os.environ.get('GEMINI_API_KEY')))\""

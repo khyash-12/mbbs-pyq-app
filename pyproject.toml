@@ -4,4 +4,12 @@ version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "fastapi>=0.135.1",
+    "pydantic>=2.12.5",
+    "pypdf>=6.8.0",
+    "python-multipart==0.0.19",
+    "requests>=2.32.5",
+    "uvicorn==0.32.1",
+    "uvicorn-worker==0.2.0",
+]
